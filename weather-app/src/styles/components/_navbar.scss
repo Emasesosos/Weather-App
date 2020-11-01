@@ -1,7 +1,11 @@
+.navbar__container.noHide {
+    display: flex;
+}
+
 .navbar__container {
     align-items: center;
     background: #1E213A;
-    display: flex;
+    display: none;
     flex-direction: column;
     height: 672px;
     justify-content: center;

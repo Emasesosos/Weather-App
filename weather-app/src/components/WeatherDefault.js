@@ -3,13 +3,17 @@ import Gps from './../assets/img/gps.svg';
 import Shower from './../assets/img/Shower.png';
 import Location from './../assets/img/location.svg';
 
-export const WeatherDefault = () => {
+export const WeatherDefault = ({ classHide, handleButtonSearch }) => {
 
     return (
-        <div className="weatherDefault__container">
+
+        <div className={` weatherDefault__container ${classHide}`}>
             <div className="weatherDefault__cloud-back"></div>
             <div className="weatherDefault__search-location">
-                <button className="weatherDefault__search-places">
+                <button 
+                    className="weatherDefault__search-places"
+                    onClick={ handleButtonSearch }
+                >
                     <p>Search for places</p>
                 </button>
                 <div className="weatherDefault__search-gps">
@@ -33,6 +37,7 @@ export const WeatherDefault = () => {
                 <p>Helsinki</p>
             </div>
         </div>
+
     );
 
 };

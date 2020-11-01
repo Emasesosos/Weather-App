@@ -4,7 +4,7 @@ import Clear from './../assets/img/clear.svg';
 import Search from './../assets/img/search.svg';
 import Arrow from './../assets/img/arrow_right.svg';
 
-export const Navbar = () => {
+export const Navbar = ({ classNavbar, handleButtonClear }) => {
 
     const initialForm = {
         searchLocation: '',
@@ -24,9 +24,13 @@ export const Navbar = () => {
 
     return (
 
-        <div className="navbar__container">
+        <div className={`navbar__container ${classNavbar}`}>
             <div className="navbar__clear">
-                <button><img src={ Clear } alt=""/></button>
+                <button
+                    onClick= { handleButtonClear }
+                >
+                    <img src={ Clear } alt=""/>
+                </button>
             </div>
             <form 
                 className="navbar__form"

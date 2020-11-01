@@ -31,4 +31,15 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0 auto;
+    position: relative;
+}
+
+.weather__default-component {
+    position: absolute;
+    top: 0px;
+}
+
+.weather__navbar-component {
+    position: absolute;
+    top: 0px;
 }
