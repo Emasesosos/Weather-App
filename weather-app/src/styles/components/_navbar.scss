@@ -1,0 +1,91 @@
+.navbar__container {
+    align-items: center;
+    background: #1E213A;
+    display: flex;
+    flex-direction: column;
+    height: 672px;
+    justify-content: center;
+    position: relative;
+    width: 375px;
+    .navbar__clear {
+        position: absolute;
+        right: 17.41px;
+        top: 17.41px;
+        button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+    .navbar__form {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 12px;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        input {
+            background: #1E213A;
+            border: 1px solid #E7E7EB;
+            box-sizing: border-box;
+            color: #E7E7EB;
+            height: 48px;
+            outline: none;
+            padding-left: 50px;
+            position: relative;
+            width: 252px;
+        }
+        img {
+            position: absolute;
+            left: 26px;
+            z-index: 1;
+        }
+        button {
+            background: #3C47E9;
+            border: none;
+            color: #E7E7EB;
+            cursor: pointer;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            height: 48px;
+            outline: none;
+            width: 86px;
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+    }
+    .navbar__location {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 146px;
+        .navbar__country {
+            align-items: center;
+            border: 1px solid #1E213A;
+            color: #E7E7EB;
+            cursor: pointer;
+            display: flex;
+            font-size: 16px;
+            font-weight: 500;
+            height: 64px;
+            justify-content: space-between;
+            padding-left: 12px;
+            margin-bottom: 15px;
+            transition: all .3s ease;
+            width: 351px;
+            &:hover {
+                border: 1px solid #616475;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
