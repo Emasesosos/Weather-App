@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { WeatherDefault } from './components/WeatherDefault';
 import { Navbar } from './components/Navbar';
+import { WeatherInfo } from './components/WeatherInfo/WeatherInfo';
 
 export const Weather = () => {
 
@@ -30,6 +31,9 @@ export const Weather = () => {
                     classNavbar={ classNavbar } 
                     handleButtonClear={ handleButtonClear }
                 />
+            </div>
+            <div className="weather__info-component">
+                <WeatherInfo />
             </div>
         </div>
     );
