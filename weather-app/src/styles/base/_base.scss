@@ -26,25 +26,28 @@ body {
 
 .weather__container {
     align-items: center;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    // height: 100vh;
     margin: 0 auto;
-    position: relative;
+    margin-bottom: 10px;
+    // position: relative;
+    width: 100%;
 }
 
-.weather__default-component {
-    position: absolute;
-    top: 0px;
-}
+// .weather__default-component {
+//     position: absolute;
+//     top: 0px;
+// }
 
-.weather__navbar-component {
-    position: absolute;
-    top: 0px;
-}
+// .weather__navbar-component {
+//     position: absolute;
+//     top: 0px;
+// }
 
-.weather__info-component {
-    position: absolute;
-    top: 810px;
-}
+// .weather__info-component {
+//     position: absolute;
+//     top: 810px;
+// }

@@ -74,3 +74,13 @@ export const infoDays = [{
         }
     }
 ];
+
+export const todayHl = [
+    {
+        id: 1,
+        windStatus: '7mph',
+        humidity: 84,
+        visibility: '6,4 miles',
+        airPressure: '998 mb'
+    }
+];
