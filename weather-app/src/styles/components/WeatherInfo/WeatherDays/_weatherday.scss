@@ -1,0 +1,32 @@
+.weatherDay__container {
+    align-items: center;
+    background: #1E213A;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 500;
+    height: 177px;
+    justify-content: center;
+    padding-top: 18px;
+    width: 120px;
+    img {
+        height: 62px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+        width: 56.44px;
+    }
+    p {
+        color: #E7E7EB;
+    }
+    .weatherDay__temperature {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: space-around;
+        padding: 0 10px;
+        width: 100%;
+    }
+    span {
+        color: #A09FB1;
+    }
+}

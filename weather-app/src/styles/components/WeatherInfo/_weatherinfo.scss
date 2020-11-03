@@ -1,8 +1,8 @@
-// .weatherInfo__container {
-//     align-items: center;
-//     background: #100E1D;
-//     display: flex;
-//     justify-content: center;
-//     height: 1718px;
-//     width: 375px;
-// }
+.weatherInfo__container {
+    background: #100E1D;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    height: 1718px;
+    position: relative;
+    width: 375px;
+}
