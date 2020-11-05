@@ -5,30 +5,135 @@
     justify-content: center;
 }
 
-.weatherHl__wind-status.weatherHl__wind-status,
+.weatherHl__wind-status,
 .weatherHl__humidity,
 .weatherHl__visibility,
 .weatherHl__air-pressure {
+    align-items: center;
     background: #1E213A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-bottom: 32px;
+    position: relative;
+    .title {
+        align-items: center;
+        display: flex;
+        height: 19px;
+        justify-content: center;
+        position: absolute;
+        top: 22px;
+        width: 95px;
+        p {
+            color: #E7E7EB;
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+    .data {
+        align-items: center;
+        display: flex;
+        height: 75px;
+        justify-content: center;
+        position: absolute;
+        top: 48px;
+        width: 197px;
+        p {
+            color: #E7E7EB;
+           font-size: 64px;
+           font-weight: bold; 
+        }
+        span {
+            font-size: 32px;
+            font-weight: normal;
+        }
+    }
 }
 
-.weatherHl__wind-status {
-    height: 204px;
-    width: 328px;
-}
-
+.weatherHl__wind-status,
 .weatherHl__humidity {
     height: 204px;
     width: 328px;
 }
 
-.weatherHl__visibility {
-    height: 159px;
+.weatherHl__visibility,
+.weatherHl__air-pressure {
+    height: 160px;
     width: 328px;
 }
 
-.weatherHl__air-pressure {
-    height: 159px;
-    width: 328px;
+.navigation {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 146px;
+    width: 100px;
+    .nav-icon {
+        align-items: center;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        display: flex;
+        height: 20.3px;
+        justify-content: center;
+        margin-right: 15px;
+        width: 20.3px;
+    }
+    img {
+        height: 12px;
+        transform: rotate(-175deg);
+        width: 12px;
+    }
+    p {
+        color: #E7E7EB;
+        font-size: 14px;
+        font-weight: normal;
+    }
 }
+
+.humidity-bar {
+    align-items: center;
+    color: #A09FB1;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: bold;
+    height: 40px;
+    justify-content: center;
+    position: absolute;
+    top: 139px;
+    width: 235px;
+    .digits {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .status-bar {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 5px 0;
+        .main-bar {
+            background: #E7E7EB;
+            border-radius: 80px;
+            height: 8px;
+            position: relative;
+            width: 235px;
+        }
+        .secundary-bar {
+            background: #FFEC65;
+            border-radius: 80px;
+            height: 8px;
+            left: 0;
+            position: absolute;
+        }
+    }
+    .percentage {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+}
+

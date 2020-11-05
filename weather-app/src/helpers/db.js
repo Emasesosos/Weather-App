@@ -75,12 +75,12 @@ export const infoDays = [{
     }
 ];
 
-export const todayHl = [
+export const todayHl = 
     {
         id: 1,
-        windStatus: '7mph',
+        windStatus: '7',
         humidity: 84,
-        visibility: '6,4 miles',
-        airPressure: '998 mb'
+        visibility: '6,4',
+        airPressure: '998'
     }
-];
+;
