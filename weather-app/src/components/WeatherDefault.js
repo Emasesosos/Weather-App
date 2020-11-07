@@ -25,11 +25,13 @@ export const WeatherDefault = ({ classHide, handleButtonSearch }) => {
             </div>
             <div className="weatherDefault__temperature">
                 <p>15<span>°C</span></p>
-                <span>Shower</span>
+                <div className="shower">
+                    <span>Shower</span>
+                </div>
             </div>
             <div className="weatherDefault__day">
                 <p>Today</p>
-                <p>.</p>
+                <div className="punto"></div>
                 <p>Fri, 5 Jun</p>
             </div>
             <div className="weatherDefault__location">

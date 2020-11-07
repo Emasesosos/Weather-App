@@ -20,33 +20,51 @@ body {
     align-items: center;
     background-color: #FAFAFB;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
-.weather__container {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    // height: 100vh;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    // position: relative;
+#root {
     width: 100%;
 }
 
-// .weather__default-component {
-//     position: absolute;
-//     top: 0px;
+// .weather__container {
+//     align-items: center;
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: column;
+//     margin: 0 auto;
+//     margin-bottom: 10px;
+//     width: 100%;
 // }
+.weather__container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-// .weather__navbar-component {
-//     position: absolute;
-//     top: 0px;
-// }
+.weather__default-navbar {
+    background: #1E213A;
+}
 
-// .weather__info-component {
-//     position: absolute;
-//     top: 810px;
-// }
+@media only screen and (min-width: $tablet) {
+    .weather__container {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+    }
+    .weather__default-navbar {
+        height: 1023px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 459px;
+    }
+    .weather__info {
+        left: 459px;
+        position: absolute;
+        top: 0;
+    }
+}

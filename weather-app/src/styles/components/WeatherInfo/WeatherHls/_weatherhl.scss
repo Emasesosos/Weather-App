@@ -5,6 +5,15 @@
     justify-content: center;
 }
 
+@media only screen and (min-width: $tablet) {
+    .weatherHl__container {
+        display: grid;
+        grid-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        top: 300px;
+    }
+}
+
 .weatherHl__wind-status,
 .weatherHl__humidity,
 .weatherHl__visibility,
@@ -40,8 +49,8 @@
         width: 197px;
         p {
             color: #E7E7EB;
-           font-size: 64px;
-           font-weight: bold; 
+            font-size: 64px;
+            font-weight: bold;
         }
         span {
             font-size: 32px;
@@ -136,4 +145,3 @@
         width: 100%;
     }
 }
-

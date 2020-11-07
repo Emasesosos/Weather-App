@@ -4,8 +4,6 @@
 
 .weatherDefault__container {
     align-items: center;
-    background: #1E213A;
-    // border-radius: 10px 10px 0 0;
     display: flex;
     flex-direction: column;
     height: 810px;
@@ -41,7 +39,7 @@
             color: #E7E7EB;
             cursor: pointer;
             font-size: 16px;
-            font-weight: 500;    
+            font-weight: 500;
             height: 40px;
             outline: none;
             width: 161px;
@@ -80,7 +78,8 @@
         position: absolute;
         top: 348px;
         width: 192px;
-        p, span {
+        p,
+        span {
             font-weight: 500;
         }
         p span {
@@ -97,7 +96,6 @@
         span {
             color: #A09FB1;
         }
-        
     }
     .weatherDefault__day {
         align-items: center;
@@ -108,7 +106,14 @@
         justify-content: space-around;
         position: absolute;
         top: 620px;
-        width: 150px;
+        width: 160px;
+        .punto {
+            background: #88869D;
+            border-radius: 50%;
+            height: 3px;
+            margin: 0 12px;
+            width: 3px;
+        }
     }
     .weatherDefault__location {
         align-items: center;
@@ -119,6 +124,39 @@
         top: 674px;
         p {
             margin-left: 5px;
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet) {
+    .weatherDefault__container {
+        width: 100%;
+        .weatherDefault__cloud-back {
+            background-size: 700px;
+            top: 110px;
+        }
+        .weatherDefault__search-location {
+            padding: 0 46px;
+            top: 42px;
+        }
+        .weatherDefault__weather-image {
+            top: 191px;
+            img {
+                height: 234px;
+                width: 202px;
+            }
+        }
+        .weatherDefault__temperature {
+            top: 562px;
+            .shower {
+                margin-top: 50px;
+            }
+        }
+        .weatherDefault__day {
+            top: 897px;
+        }
+        .weatherDefault__location {
+            top: 950px;
         }
     }
 }

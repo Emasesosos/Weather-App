@@ -5,7 +5,7 @@
 .navbar__container {
     align-items: center;
     background: #1E213A;
-    // border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
     display: none;
     flex-direction: column;
     height: 672px;
@@ -91,6 +91,26 @@
                 border: 1px solid #616475;
                 box-sizing: border-box;
             }
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet) {
+    .navbar__container {
+        width: 100%;
+        .navbar__clear {
+            right: 53.21px;
+            top: 19.21px;
+        }
+        .navbar__form {
+            padding: 0 56px;
+            top: 82px;
+            img {
+                left: 70px;
+            }
+        }
+        .navbar__location {
+            top: 188px;
         }
     }
 }

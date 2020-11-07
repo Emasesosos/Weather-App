@@ -19,22 +19,26 @@ export const Weather = () => {
     };
 
     return (
+
         <div className="weather__container">
-            <div className="weather__default-component">
+
+            <div className="weather__default-navbar">
                 <WeatherDefault 
                     classHide={ classHide } 
                     handleButtonSearch={ handleButtonSearch }
                 /> 
-            </div>
-            <div className="weather__navbar-component">
                 <Navbar 
                     classNavbar={ classNavbar } 
                     handleButtonClear={ handleButtonClear }
                 />
             </div>
-            <div className="weather__info-component">
-                <WeatherInfo />
+            <div className="weather__info">
+                <WeatherInfo  
+                    classHide={ classHide }
+                />
             </div>
+
         </div>
+        
     );
 };
