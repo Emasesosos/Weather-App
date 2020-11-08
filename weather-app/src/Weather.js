@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import { WeatherDefault } from './components/WeatherDefault';
-import { Navbar } from './components/Navbar';
-import { WeatherInfo } from './components/WeatherInfo/WeatherInfo';
+import React, { useEffect, useState } from 'react';
+import { Spinner } from './components/Spinner/Spinner';
+import { WeatherBody } from './components/WeatherBody';
+import { getCity, getCityById, getWeatherCity } from './helpers/fetch';
 
 export const Weather = () => {
 
     const [classHide, setClassHide] = useState('');
     const [classNavbar, setClassNavbar] = useState('');
+    const [clima, setClima] = useState('');
+    const [peticionClima, setPeticionClima] = useState(false);
 
     const handleButtonSearch = () => {
         setClassHide('hide');
@@ -18,27 +20,33 @@ export const Weather = () => {
         setClassNavbar('');
     };
 
+    useEffect(() => {
+        const city = getCity();
+        const fetchData = async () => {
+            const cityId = await getCityById(city);
+            const weather =  await getWeatherCity(cityId);
+            setClima(weather);
+            setPeticionClima(true);
+        };
+        fetchData();
+    }, []);
+
+    // const localization = navigator.geolocation.getCurrentPosition((position) => {
+    //     console.log(position);
+    // });
+
+    // console.log(localization);
+
     return (
 
-        <div className="weather__container">
-
-            <div className="weather__default-navbar">
-                <WeatherDefault 
-                    classHide={ classHide } 
-                    handleButtonSearch={ handleButtonSearch }
-                /> 
-                <Navbar 
-                    classNavbar={ classNavbar } 
-                    handleButtonClear={ handleButtonClear }
-                />
-            </div>
-            <div className="weather__info">
-                <WeatherInfo  
-                    classHide={ classHide }
-                />
-            </div>
-
-        </div>
+        peticionClima === false ? <Spinner /> 
+            : <WeatherBody 
+                classHide={ classHide } 
+                handleButtonSearch={ handleButtonSearch }
+                classNavbar={ classNavbar } 
+                handleButtonClear={ handleButtonClear }
+                weather= { clima }
+            />
         
     );
 };

@@ -3,7 +3,23 @@ import Gps from './../assets/img/gps.svg';
 import Shower from './../assets/img/Shower.png';
 import Location from './../assets/img/location.svg';
 
-export const WeatherDefault = ({ classHide, handleButtonSearch }) => {
+export const WeatherDefault = (
+    { 
+        classHide, 
+        handleButtonSearch, 
+        weather 
+    }) => {
+
+    const { title, consolidated_weather } = weather;
+    const todayWeather = consolidated_weather[0];
+    const { the_temp: temp, weather_state_name: name } = todayWeather;
+    const tempF = temp.toFixed(0);
+
+    console.log(weather);
+
+    // const getGeolocation = () => {
+    //     console.log('getGeolocation');
+    // };
 
     return (
 
@@ -16,7 +32,9 @@ export const WeatherDefault = ({ classHide, handleButtonSearch }) => {
                 >
                     <p>Search for places</p>
                 </button>
-                <div className="weatherDefault__search-gps">
+                <div className="weatherDefault__search-gps"
+                    // onClick={ getGeolocation }
+                >
                     <img src={ Gps } alt="Gps"/>
                 </div>
             </div>
@@ -24,9 +42,9 @@ export const WeatherDefault = ({ classHide, handleButtonSearch }) => {
                 <img src={ Shower } alt="Shower"/>
             </div>
             <div className="weatherDefault__temperature">
-                <p>15<span>°C</span></p>
+                <p>{tempF}<span>°C</span></p>
                 <div className="shower">
-                    <span>Shower</span>
+                    <span>{name}</span>
                 </div>
             </div>
             <div className="weatherDefault__day">
@@ -36,7 +54,7 @@ export const WeatherDefault = ({ classHide, handleButtonSearch }) => {
             </div>
             <div className="weatherDefault__location">
                 <img src={ Location } alt="Location"/>
-                <p>Helsinki</p>
+                <p>{title}</p>
             </div>
         </div>
 
