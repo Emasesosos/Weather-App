@@ -1,16 +1,14 @@
 .weatherHls__container {
     color: #E7E7EB;
-    margin: 0 23px;
-    position: absolute;
-    top: 678px;
     h1 {
         font-size: 24px;
         margin-bottom: 32px;
     }
+    margin-top: 51px;
 }
 
 @media only screen and (min-width: $tablet) {
     .weatherHls__container {
-        top: 300px;
+        margin-top: 0;
     }
 }

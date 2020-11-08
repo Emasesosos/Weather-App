@@ -132,31 +132,28 @@
     .weatherDefault__container {
         width: 100%;
         .weatherDefault__cloud-back {
-            background-size: 700px;
-            top: 110px;
+            background-size: 450px;
+            top: 60px;
         }
         .weatherDefault__search-location {
-            padding: 0 46px;
-            top: 42px;
+            padding: 0 36px;
+            top: 15px;
         }
         .weatherDefault__weather-image {
-            top: 191px;
+            top: 101px;
             img {
-                height: 234px;
-                width: 202px;
+                height: 170px;
+                width: 142px;
             }
         }
         .weatherDefault__temperature {
-            top: 562px;
-            .shower {
-                margin-top: 50px;
-            }
+            top: 280px;
         }
         .weatherDefault__day {
-            top: 897px;
+            top: 517px;
         }
         .weatherDefault__location {
-            top: 950px;
+            top: 560px;
         }
     }
 }

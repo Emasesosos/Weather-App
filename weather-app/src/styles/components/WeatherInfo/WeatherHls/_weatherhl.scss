@@ -8,9 +8,8 @@
 @media only screen and (min-width: $tablet) {
     .weatherHl__container {
         display: grid;
-        grid-gap: 40px;
+        grid-gap: 15px 48px;
         grid-template-columns: repeat(2, 1fr);
-        top: 300px;
     }
 }
 
@@ -23,7 +22,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
     position: relative;
     .title {
         align-items: center;
@@ -61,14 +60,14 @@
 
 .weatherHl__wind-status,
 .weatherHl__humidity {
-    height: 204px;
-    width: 328px;
+    height: 200px;
+    width: 324px;
 }
 
 .weatherHl__visibility,
 .weatherHl__air-pressure {
-    height: 160px;
-    width: 328px;
+    height: 156px;
+    width: 324px;
 }
 
 .navigation {

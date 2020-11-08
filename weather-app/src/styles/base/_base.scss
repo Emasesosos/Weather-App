@@ -25,18 +25,10 @@ body {
 }
 
 #root {
+    background: cornflowerblue;
     width: 100%;
 }
 
-// .weather__container {
-//     align-items: center;
-//     display: flex;
-//     justify-content: center;
-//     flex-direction: column;
-//     margin: 0 auto;
-//     margin-bottom: 10px;
-//     width: 100%;
-// }
 .weather__container {
     align-items: center;
     display: flex;
@@ -48,23 +40,51 @@ body {
     background: #1E213A;
 }
 
+.weather__info {
+    background: #100E1D;
+}
+
 @media only screen and (min-width: $tablet) {
     .weather__container {
-        align-items: center;
+        align-items: flex-start;
         display: flex;
         flex-direction: row;
-        position: relative;
+        justify-content: center;
     }
     .weather__default-navbar {
-        height: 1023px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 459px;
+        height: 140vh;
+        width: 30%;
     }
     .weather__info {
-        left: 459px;
-        position: absolute;
-        top: 0;
+        height: 140vh;
+        width: 70%;
     }
 }
+
+@media only screen and (min-width: $desktop) {
+    .weather__default-navbar {
+        height: 100vh;
+        width: 30%;
+    }
+    .weather__info {
+        height: 100vh;
+        width: 70%;
+    }
+}
+
+// @media only screen and (min-width: $desktop) {
+//     .weather__container {
+//         align-items: flex-start;
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: center;
+//     }
+//     .weather__default-navbar {
+//         height: 100vh;
+//         width: 30%;
+//     }
+//     .weather__info {
+//         height: 100vh;
+//         width: 70%;
+//     }
+// }
