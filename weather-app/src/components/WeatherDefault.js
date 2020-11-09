@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Gps from './../assets/img/gps.svg';
-import Shower from './../assets/img/Shower.png';
 import Location from './../assets/img/location.svg';
 
 export const WeatherDefault = (
@@ -10,12 +9,25 @@ export const WeatherDefault = (
         weather 
     }) => {
 
+    const [date, setDate] = useState('');
+
     const { title, consolidated_weather } = weather;
     const todayWeather = consolidated_weather[0];
-    const { the_temp: temp, weather_state_name: name } = todayWeather;
+    const { the_temp: temp, weather_state_name: name, applicable_date } = todayWeather;
+    const nameImg = name.replace(' ', '');
     const tempF = temp.toFixed(0);
 
-    console.log(weather);
+    const event = useMemo(() => new Date(applicable_date), [applicable_date]);
+
+    useEffect(() => {
+        setDate(
+            event.toLocaleDateString('en-US', {
+              weekday: 'short',
+              day: 'numeric',
+              month: 'short',
+            }),
+          );
+    }, [event]);
 
     // const getGeolocation = () => {
     //     console.log('getGeolocation');
@@ -39,7 +51,10 @@ export const WeatherDefault = (
                 </div>
             </div>
             <div className="weatherDefault__weather-image">
-                <img src={ Shower } alt="Shower"/>
+                <img 
+                    src={ require(`./../assets/img/${nameImg}.png`).default }
+                    alt={nameImg}
+                />
             </div>
             <div className="weatherDefault__temperature">
                 <p>{tempF}<span>°C</span></p>
@@ -50,7 +65,7 @@ export const WeatherDefault = (
             <div className="weatherDefault__day">
                 <p>Today</p>
                 <div className="punto"></div>
-                <p>Fri, 5 Jun</p>
+                <p>{date}</p>
             </div>
             <div className="weatherDefault__location">
                 <img src={ Location } alt="Location"/>

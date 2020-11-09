@@ -1,9 +1,20 @@
 import React from 'react';
 import Navigation from './../../../assets/img/near_me.svg';
 
-export const WeatherHl = ({ todayHl }) => {
+export const WeatherHl = ({ weather }) => {
 
-    const { windStatus, humidity, visibility, airPressure } = todayHl;
+    const { 
+        wind_speed, 
+        humidity, 
+        visibility, 
+        air_pressure,
+        wind_direction_compass 
+    } = weather.consolidated_weather[0];
+
+    const windStatus = wind_speed.toFixed(0);
+    const humidityF = humidity.toFixed(0);
+    const visibilityF = visibility.toFixed(0);
+    const airPressure = air_pressure.toFixed(0);
 
     const percentageBar = (humidity * 235) / 100;
 
@@ -20,7 +31,7 @@ export const WeatherHl = ({ todayHl }) => {
                     <div className="nav-icon">
                         <img src={ Navigation } alt=""/>
                     </div>
-                    <p>WSW</p>
+                    <p>{wind_direction_compass}</p>
                 </div>
             </div>
             <div className="weatherHl__humidity">
@@ -28,7 +39,7 @@ export const WeatherHl = ({ todayHl }) => {
                     <p>Humidity</p>
                 </div>
                 <div className="data">
-                    <p>{humidity}<span>%</span></p>
+                    <p>{humidityF}<span>%</span></p>
                 </div>
                 <div className="humidity-bar">
                     <div className="digits">
@@ -50,7 +61,7 @@ export const WeatherHl = ({ todayHl }) => {
                     <p>Visibility</p>
                 </div>
                 <div className="data">
-                    <p>{visibility} <span>miles</span></p>
+                    <p>{visibilityF} <span>miles</span></p>
                 </div>
             </div>
             <div className="weatherHl__air-pressure">

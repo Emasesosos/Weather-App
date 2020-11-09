@@ -2,7 +2,7 @@ import React from 'react';
 import { WeatherDays } from './WeatherDays.js/WeatherDays';
 import { WeatherHls } from './WeatherHls/WeatherHls';
 
-export const WeatherInfo = () => {
+export const WeatherInfo = ({ weather }) => {
     return (
         <div className="weatherInfo__container">
             <div className="weatherInfo__scale">
@@ -13,8 +13,12 @@ export const WeatherInfo = () => {
                     <p>°F</p>
                 </div>
             </div>
-            <WeatherDays />
-            <WeatherHls />
+            <WeatherDays 
+                weather={ weather }
+            />
+            <WeatherHls 
+                weather={ weather }
+            />
         </div>
     );
 };
