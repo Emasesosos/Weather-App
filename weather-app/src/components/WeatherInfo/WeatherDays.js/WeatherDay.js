@@ -1,12 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React  from 'react';
 
 export const WeatherDay = ({ infoDay }) => {
 
-    const [date, setDate] = useState('');
-
     const { 
-        applicable_date, 
-        // created,
+        applicable_date,
         max_temp, 
         min_temp,
         weather_state_name
@@ -16,25 +13,15 @@ export const WeatherDay = ({ infoDay }) => {
     const max_tempF = max_temp.toFixed(0);
     const min_tempF = min_temp.toFixed(0);
 
-    const event = useMemo(() => new Date(applicable_date), [applicable_date]);
-
-    useEffect(() => {
-        setDate(
-            event.toLocaleDateString('en-US', {
-              weekday: 'short',
-              day: 'numeric',
-              month: 'short',
-            }),
-          );
-    }, [event]);
+    const date = new Date(applicable_date).toUTCString().slice(0,11);
 
     return (
         <div className="weatherDay__container">
 
-            <p>{date}</p>
+            <p>{ applicable_date === 'Tomorrow' ? applicable_date : date }</p>
             <img 
                 src={ require(`../../../assets/img/${nameImg}.png`).default }
-                alt={nameImg}
+                alt={ nameImg }
             /> 
             <div className="weatherDay__temperature">
                 <p>{ max_tempF } °C</p>

@@ -28,7 +28,7 @@ export const WeatherHl = ({ weather }) => {
                     <p>{windStatus}<span>mph</span></p>
                 </div>
                 <div className="navigation">
-                    <div className="nav-icon">
+                    <div className={`nav-icon ${wind_direction_compass}`}>
                         <img src={ Navigation } alt=""/>
                     </div>
                     <p>{wind_direction_compass}</p>
