@@ -2,7 +2,7 @@ import React from 'react';
 import { WeatherDay } from './WeatherDay';
 // import { infoDays } from './../../../helpers/db';
 
-export const WeatherDays = ({ weather }) => {
+export const WeatherDays = ({ weather, temperatureScale }) => {
 
     const consolidatedWeatherF = [ 
         weather.consolidated_weather[1],   
@@ -22,6 +22,7 @@ export const WeatherDays = ({ weather }) => {
                                 key={ infoDay.id }
                                 infoDay={ infoDay }
                                 weather={ weather }
+                                temperatureScale={ temperatureScale }
                             />;
                 })
             }

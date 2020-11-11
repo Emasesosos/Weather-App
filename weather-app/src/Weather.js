@@ -22,9 +22,12 @@ export const Weather = () => {
 
     useEffect(() => {
         const city = getCity();
+        // console.log(city);
         const fetchData = async () => {
             const cityId = await getCityById(city);
+            // console.log(cityId);
             const weather =  await getWeatherCity(cityId);
+            // console.log(weather);
             setClima(weather);
             setPeticionClima(true);
         };

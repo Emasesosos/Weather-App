@@ -26,12 +26,15 @@ export const WeatherHl = ({ weather }) => {
                 </div>
                 <div className="data">
                     <p>{windStatus}<span>mph</span></p>
+                    {/* <p>7<span>mph</span></p> */}
                 </div>
                 <div className="navigation">
                     <div className={`nav-icon ${wind_direction_compass}`}>
+                    {/* <div className={`nav-icon`}> */}
                         <img src={ Navigation } alt=""/>
                     </div>
                     <p>{wind_direction_compass}</p>
+                    {/* <p>WSW</p> */}
                 </div>
             </div>
             <div className="weatherHl__humidity">
@@ -40,6 +43,7 @@ export const WeatherHl = ({ weather }) => {
                 </div>
                 <div className="data">
                     <p>{humidityF}<span>%</span></p>
+                    {/* <p>30<span>%</span></p> */}
                 </div>
                 <div className="humidity-bar">
                     <div className="digits">
@@ -62,6 +66,7 @@ export const WeatherHl = ({ weather }) => {
                 </div>
                 <div className="data">
                     <p>{visibilityF} <span>miles</span></p>
+                    {/* <p>10 <span>miles</span></p> */}
                 </div>
             </div>
             <div className="weatherHl__air-pressure">
@@ -70,6 +75,7 @@ export const WeatherHl = ({ weather }) => {
                 </div>
                 <div className="data">
                     <p>{airPressure} <span>mb</span></p>
+                    {/* <p>1023 <span>mb</span></p> */}
                 </div>
             </div>
         </div>

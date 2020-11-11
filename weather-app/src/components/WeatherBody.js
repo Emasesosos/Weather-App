@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar } from './Navbar';
 import { WeatherDefault } from './WeatherDefault';
 import { WeatherInfo } from './WeatherInfo/WeatherInfo';
@@ -12,6 +12,16 @@ export const WeatherBody = (
         weather
     }) => {
 
+    const [tempScaleDefault, setTempScaleDefault] = useState({
+        scaleDefault: ''
+    });
+
+    useEffect(() => {
+        setTempScaleDefault({
+            scaleDefault: 'C'
+        });
+    }, []);
+
     return (
 
         <div className="weather__container">
@@ -20,6 +30,7 @@ export const WeatherBody = (
                     classHide={ classHide } 
                     handleButtonSearch={ handleButtonSearch }
                     weather={weather}
+                    tempScaleDefault={tempScaleDefault}
                 /> 
                 <Navbar 
                     classNavbar={ classNavbar } 
@@ -30,6 +41,7 @@ export const WeatherBody = (
                 <WeatherInfo  
                     classHide={ classHide }
                     weather={weather}
+                    setTempScaleDefault={ setTempScaleDefault }
                 />
             </div>
         </div>

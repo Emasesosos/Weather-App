@@ -8,7 +8,7 @@ export const getCityById = async(city) => {
     try {
 
         const resp = await fetch(url);
-        // console.log(resp);
+        console.log(resp);
         if (!resp.ok) throw new Error('No se pudo realizar la petición getCityById');
         const data = await resp.json();
         const cityId = data[0].woeid;
@@ -33,6 +33,7 @@ export const getWeatherCity = async(cityId) => {
     try {
 
         const resp = await fetch(url);
+        console.log(resp);
         if (!resp.ok) throw new Error('No se pudo realizar la petición getWeatherCity');
         const data = await resp.json();
 
