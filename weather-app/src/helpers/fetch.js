@@ -45,6 +45,28 @@ export const getWeatherCity = async(cityId) => {
 
 };
 
+// Obtiene el Clima del país por ubicación
+export const getGeoWeatherCity = async(latt, long) => {
+
+    const corsHeroku = 'https://cors-anywhere.herokuapp.com';
+    const urlApi = 'https://www.metaweather.com/api/location/search/?lattlong';
+    const url = `${corsHeroku}/${urlApi}=${latt},${long}`;
+
+    try {
+
+        const resp = await fetch(url);
+        console.log(resp);
+        if (!resp.ok) throw new Error('No se pudo realizar la petición getGeoWeatherCity');
+        const data = await resp.json();
+
+        return data;
+
+    } catch (error) {
+        throw error;
+    }
+
+};
+
 // Obtiene una ciudad aleatoria
 export const getCity = () => {
 
