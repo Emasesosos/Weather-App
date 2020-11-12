@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
 import { Spinner } from './components/Spinner/Spinner';
 import { WeatherBody } from './components/WeatherBody';
-import { getCity, getCityById, getWeatherCity } from './helpers/fetch';
+import { getCity, getCityById, getGeoWeatherCity, getWeatherCity } from './helpers/fetch';
 
 export const Weather = () => {
 
@@ -11,10 +10,7 @@ export const Weather = () => {
     const [clima, setClima] = useState('');
     const [peticionClima, setPeticionClima] = useState(false);
     const [searchLocation, setSearchLocation] = useState('');
-    // const [geoLocalization, setGeoLocalization] = useState({
-    //     latt: '',
-    //     long: ''
-    // });
+    const [geoLocalization, setGeoLocalization] = useState({ latt: '', long: '', status: false });
 
     const handleButtonSearch = () => {
         setClassHide('hide');
@@ -25,46 +21,66 @@ export const Weather = () => {
         setClassHide('');
         setClassNavbar('');
     };
+    
+    const getGeolocation = () => {
+        
+        const fetchData = async() => {
 
-    // useEffect(() => {
+            console.log(geoLocalization);
 
-    //     const getCoords = (latt, long) => {
-    //         setGeoLocalization({
-    //             latt: latt,
-    //             long: long 
-    //         })
-    //     };
+            const { latt, long } = geoLocalization;
 
-    //     console.log('useEffect 1st');
-    //     return navigator.geolocation.getCurrentPosition((position) => {
-    //         // console.log(position);
-    //         const { latitude, longitude } = position.coords;
-    //         getCoords(latitude, longitude);
+            const geoCityWeather = await getGeoWeatherCity(latt, long);
 
-    //     });
+            if(!geoCityWeather) return;
 
-    // }, [])
+            const cityGeoId = geoCityWeather.woeid;
+            // const cityId = await getCityById(cityGeoId);
+            const weather = await getWeatherCity(cityGeoId);
+            setClima(weather);
+            setPeticionClima({
+                latt: '',
+                long: '',
+                status: true
+            });
+          
+        };
+
+        fetchData();
+        console.log(geoLocalization);
+
+    };
+
+    useEffect(() => {
+        
+        const getCoords = (latt, long) => {
+            setGeoLocalization({
+                latt: latt,
+                long: long,
+                status: false
+            })
+        };
+
+        navigator.geolocation.getCurrentPosition((position) => {
+            const { latitude, longitude } = position.coords;
+            getCoords(latitude, longitude);
+        });
+
+    }, []);
 
     useEffect(() => {
 
-        // const { latt, long } = geoLocalization;
-        // console.log('useeffect 2nd', geoLocalization);
         const city = getCity();
-        // console.log(city);
+    
         const fetchData = async() => {
 
-            // const geoCityWeather = await getGeoWeatherCity(latt, long);
-            // console.log(geoCityWeather[0].woeid);
-            // const cityGeoId = geoCityWeather[0].woeid;
-            // console.log(cityGeoId);
             const cityId = await getCityById(city);
-            // console.log(cityId);
             const weather = await getWeatherCity(cityId);
-            // console.log(weather);
             setClima(weather);
             setPeticionClima(true);
         };
         fetchData();
+
     }, []);
 
     useEffect(() => {
@@ -92,7 +108,7 @@ export const Weather = () => {
 
     return (
 
-        peticionClima === false ? <Spinner />
+        (peticionClima === false) ? <Spinner />
         :   <WeatherBody classHide = { classHide }
                 handleButtonSearch = { handleButtonSearch }
                 classNavbar = { classNavbar }
@@ -100,6 +116,7 @@ export const Weather = () => {
                 weather = { clima }
                 searchLocation= { searchLocation }
                 setSearchLocation= { setSearchLocation }
+                getGeolocation= { getGeolocation }
             />
 
     );

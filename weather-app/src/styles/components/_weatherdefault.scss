@@ -56,6 +56,9 @@
             height: 40px;
             justify-content: center;
             width: 40px;
+            &:active {
+                transform: scale(0.97);
+            }
         }
     }
     .weatherDefault__weather-image {

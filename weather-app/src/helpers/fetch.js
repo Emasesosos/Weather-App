@@ -60,17 +60,28 @@ export const getGeoWeatherCity = async(latt, long) => {
     const urlApi = 'https://www.metaweather.com/api/location/search/?lattlong';
     const url = `${corsHeroku}/${urlApi}=${latt},${long}`;
 
+    console.log(url);
+
     try {
 
         const resp = await fetch(url);
         console.log(resp);
         if (!resp.ok) throw new Error('No se pudo realizar la petición getGeoWeatherCity');
         const data = await resp.json();
+        console.log(data);
 
-        return data;
+        return data[0];
 
     } catch (error) {
-        throw error;
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href>Why do I have this issue?</a>'
+        })
+
+        //throw error;
     }
 
 };

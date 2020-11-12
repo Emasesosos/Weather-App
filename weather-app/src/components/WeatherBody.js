@@ -11,7 +11,8 @@ export const WeatherBody = (
         handleButtonClear,
         weather,
         searchLocation,
-        setSearchLocation
+        setSearchLocation,
+        getGeolocation
     }) => {
 
     const [tempScaleDefault, setTempScaleDefault] = useState({
@@ -33,6 +34,7 @@ export const WeatherBody = (
                     handleButtonSearch={ handleButtonSearch }
                     weather={weather}
                     tempScaleDefault={tempScaleDefault}
+                    getGeolocation={ getGeolocation }
                 /> 
                 <Navbar 
                     classNavbar={ classNavbar } 

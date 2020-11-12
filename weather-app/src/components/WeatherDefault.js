@@ -7,7 +7,8 @@ export const WeatherDefault = (
         classHide, 
         handleButtonSearch, 
         weather,
-        tempScaleDefault
+        tempScaleDefault,
+        getGeolocation
     }) => {
 
     const { title, consolidated_weather } = weather;
@@ -40,8 +41,9 @@ export const WeatherDefault = (
                 >
                     <p>Search for places</p>
                 </button>
-                <div className="weatherDefault__search-gps"
-                    // onClick={ getGeolocation }
+                <div 
+                    className="weatherDefault__search-gps"
+                    onClick={ getGeolocation }
                 >
                     <img src={ Gps } alt="Gps"/>
                 </div>
