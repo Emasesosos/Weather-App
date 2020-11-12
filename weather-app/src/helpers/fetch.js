@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 // Obtiene el Id de la Ciudad
 export const getCityById = async(city) => {
 
@@ -12,12 +14,18 @@ export const getCityById = async(city) => {
         if (!resp.ok) throw new Error('No se pudo realizar la petición getCityById');
         const data = await resp.json();
         const cityId = data[0].woeid;
-
         return cityId;
 
     } catch (error) {
 
-        throw error;
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href>Why do I have this issue?</a>'
+        })
+
+        // throw error;
 
     }
 

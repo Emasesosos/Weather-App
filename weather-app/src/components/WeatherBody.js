@@ -9,7 +9,9 @@ export const WeatherBody = (
         handleButtonSearch, 
         classNavbar, 
         handleButtonClear,
-        weather
+        weather,
+        searchLocation,
+        setSearchLocation
     }) => {
 
     const [tempScaleDefault, setTempScaleDefault] = useState({
@@ -35,6 +37,8 @@ export const WeatherBody = (
                 <Navbar 
                     classNavbar={ classNavbar } 
                     handleButtonClear={ handleButtonClear }
+                    searchLocation= { searchLocation }
+                    setSearchLocation={ setSearchLocation }
                 />
             </div>
             <div className="weather__info">

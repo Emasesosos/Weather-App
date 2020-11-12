@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useForm from '../hooks/useForm';
 import Clear from './../assets/img/clear.svg';
 import Search from './../assets/img/search.svg';
-import Arrow from './../assets/img/arrow_right.svg';
+import { NavbarLocation } from './NavbarLocation';
 
-export const Navbar = ({ classNavbar, handleButtonClear }) => {
+export const Navbar = (
+    { 
+        classNavbar, 
+        handleButtonClear, 
+        searchLocation, 
+        setSearchLocation 
+    }) => {
+
+    const [search, setSearch] = useState('');
 
     const initialForm = {
-        searchLocation: '',
+        sLocation: '',
     };
 
     const [ formValues, handleInputChange, reset ] = useForm(initialForm);
-    const { searchLocation } = formValues;
+    const { sLocation } = formValues;
 
     const handleSearch = (e) => {
         e.preventDefault();
-        if(!searchLocation) {
+        console.log('formSearch');
+        if(!sLocation) {
             return;
         }
-        console.log(searchLocation);
+        setSearchLocation(sLocation);
+        setSearch(sLocation);
+        console.log(sLocation);
         reset();
     };
 
@@ -39,12 +50,12 @@ export const Navbar = ({ classNavbar, handleButtonClear }) => {
                 <img src={ Search } alt=""/>
                 <input 
                     type="text"
-                    name="searchLocation"
+                    name="sLocation"
                     placeholder="search location"
                     autoComplete="off"
                     className="navbar__input"
                     onChange={ handleInputChange }
-                    value={ searchLocation }
+                    value={ sLocation }
                 />
                 <button
                     type="submit"
@@ -53,24 +64,7 @@ export const Navbar = ({ classNavbar, handleButtonClear }) => {
                     Search
                 </button>
             </form>
-            <div className="navbar__location">
-                <div className="navbar__country">
-                    <p>México</p>
-                    <img src={ Arrow } alt=""/>
-                </div>
-                <div className="navbar__country">
-                    <p>London</p>
-                    <img src={ Arrow } alt=""/>
-                </div>
-                <div className="navbar__country">
-                    <p>Barcelona</p>
-                    <img src={ Arrow } alt=""/>
-                </div>
-                <div className="navbar__country">
-                    <p>Long Beach</p>
-                    <img src={ Arrow } alt=""/>
-                </div>
-            </div>
+            { searchLocation && <NavbarLocation search={ search }/> }
         </div>
 
     );
