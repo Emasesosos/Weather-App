@@ -35,7 +35,6 @@ export const Weather = () => {
             if(!geoCityWeather) return;
 
             const cityGeoId = geoCityWeather.woeid;
-            // const cityId = await getCityById(cityGeoId);
             const weather = await getWeatherCity(cityGeoId);
             setClima(weather);
             setPeticionClima({
@@ -43,7 +42,7 @@ export const Weather = () => {
                 long: '',
                 status: true
             });
-          
+            
         };
 
         fetchData();

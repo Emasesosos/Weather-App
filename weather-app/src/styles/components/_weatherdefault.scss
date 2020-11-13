@@ -9,6 +9,8 @@
     height: 810px;
     justify-content: center;
     position: relative;
+    transform: translateX(0);
+    z-index: 100;
     width: 375px;
     .weatherDefault__cloud-back {
         align-items: center;

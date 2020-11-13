@@ -7,8 +7,7 @@ import { NavbarLocation } from './NavbarLocation';
 export const Navbar = (
     { 
         classNavbar, 
-        handleButtonClear, 
-        searchLocation, 
+        handleButtonClear,  
         setSearchLocation 
     }) => {
 
@@ -27,11 +26,11 @@ export const Navbar = (
         if(!sLocation) {
             return;
         }
-        setSearchLocation(sLocation);
         setSearch(sLocation);
-        console.log(sLocation);
         reset();
     };
+
+    console.log(search);
 
     return (
 
@@ -64,7 +63,13 @@ export const Navbar = (
                     Search
                 </button>
             </form>
-            { searchLocation && <NavbarLocation search={ search }/> }
+            { 
+                search && <NavbarLocation 
+                                    search={ search }
+                                    handleButtonClear={ handleButtonClear }
+                                    setSearchLocation={ setSearchLocation }
+                                    /> 
+            }
         </div>
 
     );
