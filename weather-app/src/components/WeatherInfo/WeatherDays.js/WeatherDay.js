@@ -33,7 +33,7 @@ export const WeatherDay = ({ infoDay, temperatureScale }) => {
             {/* <p>Day</p> */}
             <img 
                 src={ require(`../../../assets/img/${nameImg}.png`).default }
-                // src={ require(`../../../assets/img/Clear.png`).default }
+                //src={ require(`../../../assets/img/Clear.png`).default }
                 alt={ nameImg }
             /> 
             <div className="weatherDay__temperature">

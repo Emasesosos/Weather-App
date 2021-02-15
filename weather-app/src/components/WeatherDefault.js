@@ -11,6 +11,8 @@ export const WeatherDefault = (
         getGeolocation
     }) => {
 
+    console.log({weather});
+
     const { title, consolidated_weather } = weather;
     const todayWeather = consolidated_weather[0];
     const { the_temp , weather_state_name: name, applicable_date } = todayWeather;

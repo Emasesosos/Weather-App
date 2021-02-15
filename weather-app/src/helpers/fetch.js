@@ -3,9 +3,12 @@ import Swal from 'sweetalert2';
 // Obtiene el Id de la Ciudad
 export const getCityById = async(city) => {
 
-    const corsHeroku = 'https://cors-anywhere.herokuapp.com';
+    // const corsHeroku = 'https://cors-anywhere.herokuapp.com'; // deprecated
+    const corsHeroku = 'https://obscure-mesa-98003.herokuapp.com'; // Good
     const urlApi = 'https://www.metaweather.com/api/location/search/?query';
     const url = `${corsHeroku}/${urlApi}=${city}`;
+
+    console.log({ url });
 
     try {
 
@@ -34,7 +37,8 @@ export const getCityById = async(city) => {
 // Obtiene el Clima del país elegido
 export const getWeatherCity = async(cityId) => {
 
-    const corsHeroku = 'https://cors-anywhere.herokuapp.com';
+    // const corsHeroku = 'https://cors-anywhere.herokuapp.com'; // deprecated
+    const corsHeroku = 'https://obscure-mesa-98003.herokuapp.com'; // Good
     const urlApi = 'https://www.metaweather.com/api/location';
     const url = `${corsHeroku}/${urlApi}/${cityId}`;
 
@@ -56,7 +60,8 @@ export const getWeatherCity = async(cityId) => {
 // Obtiene el Clima del país por ubicación
 export const getGeoWeatherCity = async(latt, long) => {
 
-    const corsHeroku = 'https://cors-anywhere.herokuapp.com';
+    // const corsHeroku = 'https://cors-anywhere.herokuapp.com'; // deprecated
+    const corsHeroku = 'https://obscure-mesa-98003.herokuapp.com'; // Good
     const urlApi = 'https://www.metaweather.com/api/location/search/?lattlong';
     const url = `${corsHeroku}/${urlApi}=${latt},${long}`;
 

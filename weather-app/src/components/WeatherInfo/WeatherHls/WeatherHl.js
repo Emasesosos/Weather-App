@@ -3,6 +3,8 @@ import Navigation from './../../../assets/img/near_me.svg';
 
 export const WeatherHl = ({ weather }) => {
 
+    console.log({weather});
+    
     const { 
         wind_speed, 
         humidity, 
